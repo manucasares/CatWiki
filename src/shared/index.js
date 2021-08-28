@@ -4,5 +4,16 @@ import { Spinner } from './Spinner';
 import { Logo } from './Logo';
 import { Typography } from './Typography';
 import { Input } from './input/Input';
+import { FlexBetweenContainer } from './position/FlexBetween';
+import { RelativeContainer } from './position/RelativeContainer';
 
-export { Button, Container, Input, Spinner, Logo, Typography };
+export {
+	Button,
+	Container,
+	Input,
+	Spinner,
+	Logo,
+	Typography,
+	FlexBetweenContainer,
+	RelativeContainer,
+};

@@ -3,6 +3,7 @@ export const theme = {
 		dark: '#291507',
 		dark_opacity: 'rgba(41, 21, 7, 60%)',
 		very_dark_brown: '#544439',
+		platinum: '#E3E1DC',
 	},
 	fz: {
 		200: 'clamp(13px, 2.5vw, 16px)',
