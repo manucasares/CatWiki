@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { FaLongArrowAltRight } from 'react-icons/fa';
-import { Typography } from 'shared';
+import { FlexBetweenContainer, Typography } from 'shared';
 
-export const HomeContainer = styled.main`
+export const HeroAndMostSearched = styled.main`
 	border-radius: 24px;
 	overflow: hidden;
+	margin-bottom: 4rem;
 `;
 
 export const Hero = styled.section`
@@ -29,7 +30,8 @@ export const TextWithLine = styled(Typography)`
 	&::before {
 		content: '';
 		position: absolute;
-		bottom: -10px;
+		top: ${({ top, distance }) => top && distance};
+		bottom: ${({ bottom, distance }) => bottom && distance};
 		width: 4.5rem;
 		height: 3px;
 		border-radius: 70px;
@@ -39,7 +41,7 @@ export const TextWithLine = styled(Typography)`
 
 export const Arrow = styled(FaLongArrowAltRight)`
 	color: ${({ theme }) => theme.colors.dark_opacity};
-	right: -25px;
+	margin-left: 0.8rem;
 `;
 
 export const Cats = styled.section`
@@ -51,12 +53,55 @@ export const Cats = styled.section`
 
 export const Cat = styled.div`
 	width: 15vw;
-	/* max-width: 23%; */
 `;
 
-export const CatImage = styled.div`
+export const CatImage = styled.img.attrs((props) => ({
+	src: props.src,
+	alt: props.alt || 'cat',
+}))`
+	display: inline-block;
+	width: 100%;
+	object-fit: cover;
 	background: url(${({ src }) => src}) no-repeat center center / cover;
 	border-radius: 24px;
-	height: 15vw;
+	height: ${({ height }) => height || 'auto'};
 	margin-bottom: 0.75rem;
+`;
+
+export const ShouldHaveCat = styled(FlexBetweenContainer)`
+	gap: 1.5rem;
+
+	& > * {
+		width: 45%;
+	}
+`;
+
+export const TextContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+`;
+
+export const CatGrid = styled.div`
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: repeat(5, 1fr);
+
+	& > img:first-child {
+		//  row start, column start, row end, column end
+		grid-area: 1/1/2/4;
+	}
+
+	& > img:nth-child(2) {
+		grid-area: 2/2/4/4;
+	}
+
+	& > img:last-child {
+		grid-area: 1/4/3/6;
+	}
+`;
+
+export const CatGridImage = styled(CatImage)`
+	margin: 0;
 `;
