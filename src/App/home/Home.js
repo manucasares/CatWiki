@@ -71,7 +71,7 @@ export const Home = () => {
 					<Cats>
 						{temporaryCatImages.map((cat) => (
 							<Cat key={cat.id}>
-								<CatImage src={cat.src} height="15vw" />
+								<CatImage src={cat.src} height="15vw" mb=".75rem" />
 								<Typography fz={theme.fz['200']} fw="600">
 									{cat.breed}
 								</Typography>
@@ -102,9 +102,9 @@ export const Home = () => {
 				</TextContainer>
 
 				<CatGrid>
-					<CatGridImage src="images/image-1.png" />
-					<CatGridImage src="images/image-3.png" />
-					<CatGridImage src="images/image-2.png" />
+					<CatImage src="images/image-1.png" />
+					<CatImage src="images/image-3.png" />
+					<CatImage src="images/image-2.png" />
 				</CatGrid>
 			</ShouldHaveCat>
 		</>

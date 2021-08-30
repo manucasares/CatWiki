@@ -20,6 +20,6 @@ export const theme = {
 		regular: '.3s',
 	},
 	mediaQueries: {
-		above768: '(min-width: 768px)',
+		below768: '(max-width: 768px)',
 	},
 };

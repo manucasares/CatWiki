@@ -6,4 +6,5 @@ export const Typography = styled.p`
 	font-weight: ${({ fw }) => fw || '500'};
 	color: ${({ theme, color }) => color || theme.colors.dark};
 	margin-bottom: ${({ mb }) => mb};
+	text-align: ${({ align }) => align || 'left'};
 `;

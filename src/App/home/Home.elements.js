@@ -62,10 +62,9 @@ export const CatImage = styled.img.attrs((props) => ({
 	display: inline-block;
 	width: 100%;
 	object-fit: cover;
-	background: url(${({ src }) => src}) no-repeat center center / cover;
 	border-radius: 24px;
 	height: ${({ height }) => height || 'auto'};
-	margin-bottom: 0.75rem;
+	margin-bottom: ${({ mb }) => mb || '0rem'};
 `;
 
 export const ShouldHaveCat = styled(FlexBetweenContainer)`
@@ -85,8 +84,8 @@ export const TextContainer = styled.div`
 export const CatGrid = styled.div`
 	display: grid;
 	grid-gap: 1rem;
-	grid-template-rows: repeat(3, 1fr);
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(3, auto);
+	grid-template-columns: repeat(5, auto);
 
 	& > img:first-child {
 		//  row start, column start, row end, column end
@@ -100,8 +99,4 @@ export const CatGrid = styled.div`
 	& > img:last-child {
 		grid-area: 1/4/3/6;
 	}
-`;
-
-export const CatGridImage = styled(CatImage)`
-	margin: 0;
 `;

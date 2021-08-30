@@ -8,6 +8,7 @@ import {
 
 import { Home, Breed, TopTen } from 'App/index';
 import { Container, Logo } from 'shared';
+import { Footer } from 'shared/footer/Footer';
 
 export const AppRouter = () => {
 	return (
@@ -22,6 +23,8 @@ export const AppRouter = () => {
 
 					<Redirect to="/home" />
 				</Switch>
+
+				<Footer />
 			</Container>
 		</Router>
 	);
