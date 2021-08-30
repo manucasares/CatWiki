@@ -17,7 +17,7 @@ export const AppRouter = () => {
 				<Logo />
 
 				<Switch>
-					<Route exact path="/home" component={Home} />
+					<Route ex path="/home" component={Home} />
 					<Route exact path="/breeds/:breedId" component={Breed} />
 					<Route exact path="/topten" component={TopTen} />
 

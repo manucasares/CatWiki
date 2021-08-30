@@ -1,7 +1,7 @@
 import { Button } from './Button';
 import { Container } from './Container';
 import { Spinner } from './Spinner';
-import { Logo } from './Logo';
+import { Logo } from './logo/Logo';
 import { Typography } from './Typography';
 import { Input } from './input/Input';
 import { FlexBetweenContainer } from './position/FlexBetween';

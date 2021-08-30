@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Logo } from 'shared/Logo';
+import { Logo } from 'shared/logo/Logo';
 import { Typography } from 'shared/Typography';
 import { theme } from 'styles/themes';
 import { FooterContainer, User } from './Footer.elements';

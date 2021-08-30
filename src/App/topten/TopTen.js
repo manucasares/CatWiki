@@ -36,9 +36,9 @@ export const TopTen = () => {
 			<TopTenList>
 				{fakeListItems.map((item, idx) => (
 					<TopTenItem key={item.id} gap="2.5rem">
-						<ListItemImage src={item.img} width="15vw" />
+						<ListItemImage src={item.img} width="15vw" backOverlay />
 
-						<TextContainer gap="1.3rem">
+						<TextContainer gap="1.3rem" as="h3">
 							<Typography fw="700" fz={theme.fz['500']}>
 								{idx + 1}. {item.breed}
 							</Typography>
