@@ -2,20 +2,26 @@ import React from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 
 import { theme } from 'styles/themes';
-import { FlexBetweenContainer, Input, Logo, Typography } from 'shared';
+import {
+	FlexBetweenContainer,
+	Input,
+	Logo,
+	Typography,
+	CatImage,
+} from 'shared';
 import {
 	Cat,
 	CatGrid,
-	CatGridImage,
-	CatImage,
 	Cats,
 	Hero,
 	HeroAndMostSearched,
+	HeroContent,
 	MostSearchedBreeds,
 	ShouldHaveCat,
 	TextContainer,
 	TextWithLine,
 } from './Home.elements';
+
 import { ArrowLink } from './ArrowLink';
 
 const temporaryCatImages = [
@@ -46,13 +52,15 @@ export const Home = () => {
 		<>
 			<HeroAndMostSearched>
 				<Hero>
-					<Logo color="white" width="15rem" />
+					<HeroContent>
+						<Logo color="white" width="15rem" margin="0" />
 
-					<Typography color="#fff" as="h3">
-						Get to know more about your cat breed
-					</Typography>
+						<Typography color="#fff" as="h3">
+							Get to know more about your cat breed
+						</Typography>
 
-					<Input placeholder="Enter your breed" Icon={AiOutlineSearch} />
+						<Input placeholder="Enter your breed" Icon={AiOutlineSearch} />
+					</HeroContent>
 				</Hero>
 
 				<MostSearchedBreeds>
@@ -60,12 +68,12 @@ export const Home = () => {
 						Most Searched Breeds
 					</TextWithLine>
 
-					<FlexBetweenContainer mb="2rem">
+					<FlexBetweenContainer mb="2rem" gap="1.5rem">
 						<Typography fz={theme.fz['600']} fw="700" as="h3">
 							66+ Breeds For you to discover
 						</Typography>
 
-						<ArrowLink text="See more" />
+						<ArrowLink text="See more" align="center" />
 					</FlexBetweenContainer>
 
 					<Cats>

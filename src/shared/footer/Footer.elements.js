@@ -1,11 +1,16 @@
 import styled from 'styled-components';
-import { FlexBetweenContainer } from 'shared/position/FlexBetween';
+import { Container } from 'shared/Container';
 
-export const FooterContainer = styled(FlexBetweenContainer)`
+export const FooterContainer = styled(Container)`
+	display: flex;
+	justify-content: space-between;
+	gap: 2rem;
+	align-items: center;
 	background: black;
-	margin-top: 3rem;
+	// Footer always bottom
+	margin-top: auto;
 	border-radius: 2.625rem 2.625rem 0 0;
-	padding: 0.85rem 2.5rem;
+	padding: 2rem 2.5rem;
 
 	@media ${({ theme }) => theme.mediaQueries.below768} {
 		flex-direction: column;

@@ -23,9 +23,9 @@ export const AppRouter = () => {
 
 					<Redirect to="/home" />
 				</Switch>
-
-				<Footer />
 			</Container>
+
+			<Footer />
 		</Router>
 	);
 };

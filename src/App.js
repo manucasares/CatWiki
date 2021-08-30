@@ -6,12 +6,15 @@ import { ThemeProvider } from 'styled-components';
 import { AppRouter } from './routes/AppRouter';
 import { store } from './store/store';
 import { theme } from 'styles/themes';
+import { AppWrapper } from 'shared/layout/App';
 
 export const App = () => {
 	return (
 		<ThemeProvider theme={theme}>
 			<Provider store={store}>
-				<AppRouter />
+				<AppWrapper>
+					<AppRouter />
+				</AppWrapper>
 			</Provider>
 		</ThemeProvider>
 	);

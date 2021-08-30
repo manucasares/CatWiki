@@ -5,11 +5,13 @@ import { Logo } from './Logo';
 import { Typography } from './Typography';
 import { Input } from './input/Input';
 import { FlexBetweenContainer } from './position/FlexBetween';
+import { CatImage } from './CatImage';
 import { RelativeContainer } from './position/RelativeContainer';
 
 export {
 	Button,
 	Container,
+	CatImage,
 	Input,
 	Spinner,
 	Logo,
