@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Toaster } from 'react-hot-toast';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
@@ -13,6 +13,7 @@ export const App = () => {
 		<ThemeProvider theme={theme}>
 			<Provider store={store}>
 				<AppWrapper>
+					<Toaster />
 					<AppRouter />
 				</AppWrapper>
 			</Provider>

@@ -2,10 +2,15 @@ import React from 'react';
 
 import { InputContainer, InputElement } from './Input.elements';
 
-export const Input = ({ Icon }) => {
+export const Input = ({ Icon, onChange, value, name }) => {
 	return (
 		<InputContainer>
-			<InputElement placeholder="Enter your breed" />
+			<InputElement
+				onChange={onChange}
+				value={value}
+				name={name}
+				placeholder="Enter your breed"
+			/>
 
 			{Icon && <Icon />}
 		</InputContainer>

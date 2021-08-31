@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { AiOutlineSearch } from 'react-icons/ai';
+import toast from 'react-hot-toast';
 
+import { useForm } from 'hooks/useForm';
 import { theme } from 'styles/themes';
 import {
 	FlexBetweenContainer,
@@ -10,6 +14,7 @@ import {
 	CatImage,
 } from 'shared';
 import {
+	BreedList,
 	Cat,
 	CatGrid,
 	Cats,
@@ -17,37 +22,63 @@ import {
 	HeroAndMostSearched,
 	HeroContent,
 	MostSearchedBreeds,
+	Option,
 	ShouldHaveCat,
 	TextContainer,
 	TextWithLine,
 } from './Home.elements';
-
 import { ArrowLink } from './ArrowLink';
-
-const temporaryCatImages = [
-	{
-		id: 1,
-		src: 'images/image-2.png',
-		breed: 'Bengal',
-	},
-	{
-		id: 2,
-		src: 'images/image-2.png',
-		breed: 'Savannah',
-	},
-	{
-		id: 3,
-		src: 'images/image-2.png',
-		breed: 'Norwegian Forest Cat',
-	},
-	{
-		id: 4,
-		src: 'images/image-2.png',
-		breed: 'Selkirk Rex',
-	},
-];
+import { mapBreedOptions, sliceBreeds } from 'helpers/index';
+import { setActiveBreed } from 'actions/breeds';
 
 export const Home = () => {
+	const { breedData } = useSelector((state) => state.breeds);
+	const dispatch = useDispatch();
+
+	const history = useHistory();
+
+	const [{ breedSearch }, handleInputChange] = useForm({
+		breedSearch: '',
+	});
+
+	const [options, setOptions] = useState([]);
+	const [mostSearched, setMostSearched] = useState([]);
+
+	useEffect(() => {
+		// Conseguimos las opciones para el input
+		const options = mapBreedOptions(breedData);
+		setOptions(options);
+
+		// Obtenemos 4 breeds para MostSearchedBreeds
+		setMostSearched(sliceBreeds(breedData, 4));
+	}, [breedData]);
+
+	const handleSearch = (e) => {
+		e.preventDefault();
+
+		const lowerCasedTrimedBread = breedSearch.toLowerCase().trim();
+
+		const existsBreed = breedData.some(
+			(breed) => breed.name.toLowerCase() === lowerCasedTrimedBread
+		);
+
+		if (!existsBreed) {
+			toast.error("That breed doesn't exist");
+			return;
+		}
+
+		const breed = breedData.find(
+			(breed) => breed.name.toLowerCase() === lowerCasedTrimedBread
+		);
+
+		history.push(`/breeds/${breed.id}`);
+	};
+
+	const handleCatClick = (breed) => {
+		history.push(`/breeds/${breed.id}`);
+		dispatch(setActiveBreed(breed));
+	};
+
 	return (
 		<>
 			<HeroAndMostSearched>
@@ -59,7 +90,21 @@ export const Home = () => {
 							Get to know more about your cat breed
 						</Typography>
 
-						<Input placeholder="Enter your breed" Icon={AiOutlineSearch} />
+						<form onSubmit={handleSearch}>
+							<Input
+								name="breedSearch"
+								value={breedSearch}
+								onChange={handleInputChange}
+								on
+								placeholder="Enter your breed"
+								Icon={AiOutlineSearch}
+							/>
+							<BreedList>
+								{options.map(({ name, id }) => (
+									<Option key={id} value={name} />
+								))}
+							</BreedList>
+						</form>
 					</HeroContent>
 				</Hero>
 
@@ -77,11 +122,11 @@ export const Home = () => {
 					</FlexBetweenContainer>
 
 					<Cats>
-						{temporaryCatImages.map((cat) => (
-							<Cat key={cat.id}>
-								<CatImage src={cat.src} height="15vw" mb=".75rem" />
+						{mostSearched.map((breed) => (
+							<Cat key={breed.id} onClick={() => handleCatClick(breed)}>
+								<CatImage src={breed.image.url} height="15vw" mb=".75rem" />
 								<Typography fz={theme.fz['200']} fw="600">
-									{cat.breed}
+									{breed.name}
 								</Typography>
 							</Cat>
 						))}
@@ -106,7 +151,7 @@ export const Home = () => {
 						chemicals in your body which lower your stress and anxiety leves
 					</Typography>
 
-					<ArrowLink text="Read more" />
+					<ArrowLink text="View all breeds" />
 				</TextContainer>
 
 				<CatGrid>

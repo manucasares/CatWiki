@@ -6,9 +6,9 @@ export const CatImage = styled.img.attrs((props) => ({
 }))`
 	position: relative;
 	display: inline-block;
-	width: ${({ width }) => width || '100%'};
 	object-fit: cover;
 	border-radius: 24px;
+	width: ${({ width }) => width || '100%'};
 	height: ${({ height }) => height || 'auto'};
 	margin-bottom: ${({ mb }) => mb || '0rem'};
 `;

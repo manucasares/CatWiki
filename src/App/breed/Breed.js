@@ -2,11 +2,7 @@ import React from 'react';
 
 import { CatImage, Typography } from 'shared';
 import { theme } from 'styles/themes';
-import {
-	BreedInfo,
-	BreedInfoContainer,
-	OtherPhotosContainer,
-} from './Breed.elements';
+import { BreedInfo, BreedInfoContainer } from './Breed.elements';
 import { OtherPhotos } from './OtherPhotos';
 import { Property } from './Property';
 import { Stat } from './Stat';

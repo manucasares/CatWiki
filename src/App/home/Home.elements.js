@@ -21,6 +21,14 @@ export const HeroContent = styled.div`
 	width: max(200px, 65%);
 `;
 
+export const BreedList = styled.datalist.attrs(() => ({
+	id: 'breeds',
+}))``;
+
+export const Option = styled.option.attrs(({ value }) => ({
+	value,
+}))``;
+
 export const MostSearchedBreeds = styled.section`
 	background-color: ${({ theme }) => theme.colors.platinum};
 	padding: 2rem 3.5rem;
@@ -45,12 +53,6 @@ export const Arrow = styled(FaLongArrowAltRight)`
 `;
 
 export const Cats = styled.section`
-	/* display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: center;
-	gap: 2rem; */
-
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 2rem;
@@ -63,6 +65,16 @@ export const Cats = styled.section`
 
 export const Cat = styled.div`
 	width: 15vw;
+	cursor: pointer;
+
+	& > img {
+		opacity: 0.7;
+		transition: opacity ${({ theme }) => theme.transition.regular} ease;
+	}
+
+	& > img:hover {
+		opacity: 1;
+	}
 `;
 
 export const ShouldHaveCat = styled(FlexBetweenContainer)`

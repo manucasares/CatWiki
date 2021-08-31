@@ -4,6 +4,10 @@ export const InputContainer = styled.span`
 	position: relative;
 	max-width: 85%;
 
+	&:hover > svg {
+		display: none;
+	}
+
 	& > svg {
 		position: absolute;
 		top: 50%;
@@ -19,10 +23,11 @@ export const InputContainer = styled.span`
 export const InputElement = styled.input.attrs(
 	({ type, placeholder, value, onChange, name }) => ({
 		type: type || 'text',
-		placeholder: placeholder,
-		value: value,
-		onChange: onChange,
-		name: name,
+		placeholder,
+		value,
+		onChange,
+		name,
+		list: 'breeds',
 	})
 )`
 	display: block;
