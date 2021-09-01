@@ -80,7 +80,7 @@ export const Home = () => {
 	};
 
 	return (
-		<>
+		<main className="animate__animated animate__fadeIn">
 			<HeroAndMostSearched>
 				<Hero>
 					<HeroContent>
@@ -160,6 +160,6 @@ export const Home = () => {
 					<CatImage src="images/image-2.png" />
 				</CatGrid>
 			</ShouldHaveCat>
-		</>
+		</main>
 	);
 };

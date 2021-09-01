@@ -55,7 +55,7 @@ export const Arrow = styled(FaLongArrowAltRight)`
 export const Cats = styled.section`
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 2rem;
+	gap: 2rem;
 
 	@media ${({ theme }) => theme.mediaQueries.below768} {
 		grid-template-columns: 1fr 1fr;
@@ -64,7 +64,7 @@ export const Cats = styled.section`
 `;
 
 export const Cat = styled.div`
-	width: 15vw;
+	max-width: 15vw;
 	cursor: pointer;
 
 	& > img {

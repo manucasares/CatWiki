@@ -2,7 +2,7 @@ import { types } from '../types/types';
 
 const initialState = {
 	breedData: [],
-	active: [],
+	active: {},
 };
 
 export const breedReducer = (state = initialState, action) => {
@@ -14,6 +14,7 @@ export const breedReducer = (state = initialState, action) => {
 			};
 
 		case types.setActiveBreed:
+			// console.log(action.payload);
 			return {
 				...state,
 				active: action.payload,

@@ -1,5 +1,5 @@
 import { Home } from './home/Home';
 import { Breed } from './breed/Breed';
-import { TopTen } from './topten/TopTen';
+import { Breeds } from './breeds/Breeds';
 
-export { Home, Breed, TopTen };
+export { Home, Breed, Breeds };

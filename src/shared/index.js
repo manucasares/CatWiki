@@ -1,6 +1,5 @@
-import { Button } from './Button';
 import { Container } from './Container';
-import { Spinner } from './Spinner';
+import { Spinner } from './Spinner/Spinner';
 import { Logo } from './logo/Logo';
 import { Typography } from './Typography';
 import { Input } from './input/Input';
@@ -9,7 +8,6 @@ import { CatImage } from './CatImage';
 import { RelativeContainer } from './position/RelativeContainer';
 
 export {
-	Button,
 	Container,
 	CatImage,
 	Input,
